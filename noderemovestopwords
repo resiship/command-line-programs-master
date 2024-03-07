@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+
+var keyword_extractor = require("keyword-extractor");
+fs = require('fs')
+
+var program = require('commander');
+
+program
+  .version('0.0.1')
+
+program
+  .command('process [filename]')
+  .description('initialize command')
+  .action(function(filename){
+	console.log(filename);
+        fs.readFile(fs.realpathSync(filename), 'utf8', function (err,data) {
+	  if (err) {
+	    return console.log(err);
+	  }
+	  
+	  var extraction_result = keyword_extractor.extract(data,{
+		                                                        language:"english",
+		                                                        return_changed_case:true
+		                                                   });
+
+	  fs.writeFile(filename+'.out.txt', extraction_result, function (err) {
+		  if (err) return console.log(err);
+		  console.log('File writing done');
+		});	
+	});
+});
+
+
+program.parse(process.argv);
+

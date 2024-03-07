@@ -1,0 +1,16 @@
+{
+  "name": "command-line-programs-master",
+  "version"            : "0.0.1",	
+  "description": "A sample CLi program created to extract the keywords from a given file and output the keywords to a different file",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/resiship/command-line-programs-master.git"
+  },
+  "homepage": "https://github.com/resiship/command-line-programs-master.git",
+  "dependencies": {
+    "commander": "2.1.x",
+    "keyword-extractor": "0.0.7"	
+  },
+  "engine": "node >= 0.10.22",
+  "license"            : "BSD"
+}

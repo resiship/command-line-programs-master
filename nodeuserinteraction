@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+
+process.stdin.resume();
+process.stdin.setEncoding('utf8');
+var util = require('util');
+
+process.stdin.on('data', function (text) {
+	console.log('received data:', util.inspect(text));
+	if (text === 'exit\n') {
+		complete();
+	}
+	else
+	{
+		invalidCommand();
+	}
+});
+
+function complete() {
+	console.log('There is nothing to do now.');
+	process.exit();
+}
+
+function invalidCommand() {
+	console.log('Please enter the valid command');
+}
